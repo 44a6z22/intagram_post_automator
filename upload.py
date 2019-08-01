@@ -1,48 +1,32 @@
 from instapy_cli import client
-
 import time 
 import json
 import login
 
-username = '44a6z22'
-password = 'Hamza-_-'
 
-
-
-def uploadPic(jsonFile, cli, counter = 0 ): 
-
-
+def uploadPic(jsonFile, cli , picsPath): 
     with open(jsonFile,  'r') as f:
         datastore = json.load(f)
-        isUploaded = datastore["POSTS"][counter]["posted"]
 
-    if len(datastore["POSTS"]) > counter:
-        print(counter)
+    for post in datastore["POSTS"]:
+
+        isUploaded = post["posted"]
+        isDeleted = post["deleted"]
         # getting current time
         localTime = time.localtime()
-        hour = localTime.tm_hour
-        minutes = localTime.tm_min
-
+        current_hour = localTime.tm_hour
+        current_minutes = localTime.tm_min
         # getting data from the json file
-        image = datastore["POSTS"][counter]["image"]
-        caption = datastore["POSTS"][counter]["caption"]
-        uploadTime_hour = int(
-            datastore["POSTS"][counter]["time"].split(":")[0])
-        uploadTime_min = int(datastore["POSTS"][counter]["time"].split(":")[1])
+        image = post["image"]
+        caption = post["caption"] + "\n\n\n\n\n\n\n" + post["tags"]
 
-        if hour == uploadTime_hour and minutes == uploadTime_min and isUploaded == False:
-
-            datastore["POSTS"][counter]["posted"] = not isUploaded
-            with open(json_file_path, "w") as jsonFile:
+        uploadTime_hour = int(post["time"].split(":")[0])
+        uploadTime_min = int(post["time"].split(":")[1])
+    
+        if current_hour == uploadTime_hour and current_minutes == uploadTime_min and isUploaded == False and isDeleted == False:
+            print("uploading .. ")
+            cli.upload(picsPath + "/" + image, caption)
+            post["posted"] = not isUploaded
+            with open(jsonFile, "w") as jsonFile:
                 json.dump(datastore, jsonFile, indent=4)
-
-            cli.upload("images/"+image, caption)
-            counter = counter + 1
-
-        elif isUploaded == True:
-            counter = counter + 1
-        else:
-            print("not time yet")
-
-    else:
-        counter = 0
+     
