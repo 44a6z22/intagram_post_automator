@@ -3,15 +3,16 @@ from os.path import join
 import time
 import shutil 
 import json
+
 # custom libs 
 import login as log 
 import upload as up
-import cleaner
+import Classes.Cleaner as Cleaner
 
 if __name__ == "__main__":  
 	with open("json_data/cashe.json", "r") as c:
 		cache = json.load(c)
-
+		
 	isFirstTime = cache["isFirstTime"]
 	images_path = cache["images_path"]
 	json_file_path = cache["json_file_path"]
@@ -57,8 +58,8 @@ if __name__ == "__main__":
 			if current_hour == hours and \
 				current_minutes == minutes and \
 				current_seconds == seconds:
-				
-				cleaner.clean(json_file_path)
+				cleaner = Cleaner.Cleaner(json_file_path)
+				cleaner.clean()
 				
 		up.uploadPic(json_file_path, cli, images_path)
 		# counter
