@@ -8,31 +8,37 @@ import login as log
 import upload as up
 import cleaner
 
-
-with open("json_data/cashe.json", "r") as c:
-	cache = json.load(c)
-
-images_path = cache["images_path"]
-json_file_path = cache["json_file_path"]
-cleaner_file = cache["cleaner_file"]
-
-cli = log.login(cache["username"], cache["password"])
-
-# paths variables 
-before = dict([(f, None) for f in os.listdir(images_path)])
-
 if __name__ == "__main__":  
+	with open("json_data/cashe.json", "r") as c:
+		cache = json.load(c)
+
+	isFirstTime = cache["isFirstTime"]
+	images_path = cache["images_path"]
+	json_file_path = cache["json_file_path"]
+	cleaner_file = cache["cleaner_file"]
+
+	# paths variables
+	before = dict([(f, None) for f in os.listdir(images_path)])
+
 	# set up the pics file 
-	if images_path == None : 
+	if isFirstTime == True:
+		userName = input("what's your username: ")
+		password = input("what's your password: ")
 		images_path = input("please provide us with a path of a folder that we can monitore while looking for pics to post: \n ")
+
 		with open("json_data/cashe.json", 'r') as c : 
 			cache = json.load(c)
 
 		cache["images_path"] = images_path
+		cache["username"] = userName
+		cache["password"] = password
+		cache["isFirstTime"] = False
+
 
 		with open("json_data/cashe.json", 'w') as c:
 			json.dump(cache, c, indent=4)
- 
+
+	cli = log.login(cache["username"], cache["password"])
 	while True:
 		
 		with open(cleaner_file, "r") as cleaner:

@@ -1,12 +1,3 @@
 {
-    "POSTS": [
-        {
-            "image": "3pgHAyy.jpg",
-            "caption": "lol",
-            "tags": "#bagra #cow #lol #9gag #wtf",
-            "time": "18:38",
-            "posted": true,
-            "deleted": false
-        }
-    ]
+    "POSTS": []
 }
