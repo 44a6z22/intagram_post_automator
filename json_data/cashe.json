@@ -4,5 +4,6 @@
     "images_path": null,
     "json_file_path": "json_data/data.json",
     "cleaner_file": "json_data/cleaner.json",
-    "isFirstTime": true
+    "isFirstTime": true,
+    "isFistTime": false
 }
