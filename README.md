@@ -1,5 +1,5 @@
 # INSTAGRAM_POSTS_AUTOMATOR
-This is a Script made using the [instaPy_cli](https://github.com/instagrambot/instapy-cli) an unoficial instagram API for uploading posts/videos to feed/story.
+This is a Script made using the [instaPy_cli](https://github.com/instagrambot/instapy-cli) python library  for uploading posts/videos to feed/story.
 it help  you schedule you next posts for the next 24 hours 
 
 # Files
