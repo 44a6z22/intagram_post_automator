@@ -24,7 +24,7 @@ def uploadPic(jsonFile, cli , picsPath):
         uploadTime_min = int(post["time"].split(":")[1])
     
         if current_hour == uploadTime_hour and current_minutes == uploadTime_min and isUploaded == False and isDeleted == False:
-            print("uploading .. ")
+            print("uploading ... ")
             cli.upload(picsPath + "/" + image, caption)
             post["posted"] = not isUploaded
             with open(jsonFile, "w") as jsonFile:

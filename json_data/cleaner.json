@@ -1,16 +1,24 @@
 {
     "Cleaner-times": [
         {
-            "time": "08:00:00"
+            "time": "08:00:00",
+            "job": "clean", 
+            "done": true
         },
         {
-            "time": "12:00:00"
+            "time": "12:00:00",
+            "job": "clean",
+            "done": false
         },
         {
-            "time": "17:00:00"
+            "time": "17:00:00",
+            "job": "clean",
+            "done": false
         },
         {
-            "time": "00:00:00"
+            "time": "00:57:00",
+            "job": "reset",
+            "done": false
         }
     ]
 }

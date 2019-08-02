@@ -1,14 +1,16 @@
 import os
 from os.path import join
 import time
+from datetime import datetime
 import shutil 
 import json
+
 
 # custom libs 
 import login as log 
 import upload as up
 import Classes.Cleaner as Cleaner
-
+import utiles as utl
 if __name__ == "__main__":  
 	with open("json_data/cashe.json", "r") as c:
 		cache = json.load(c)
@@ -45,21 +47,29 @@ if __name__ == "__main__":
 		with open(cleaner_file, "r") as cleaner:
 			cleaner_data = json.load(cleaner)
 
+		localTime = str(datetime.now().time())
+
+		current_hour = int(localTime.split(':')[0])
+		current_minutes = int(localTime.split(':')[1])
+
+		cleaner = Cleaner.Cleaner(json_file_path)
 		for cleaner_time in cleaner_data["Cleaner-times"]:
 			hours = int(cleaner_time['time'].split(':')[0])
 			minutes = int(cleaner_time['time'].split(':')[1])
-			seconds = int(cleaner_time['time'].split(':')[2])
-
-			localTime = time.localtime()
-			current_hour = localTime.tm_hour
-			current_minutes = localTime.tm_min
-			current_seconds = localTime.tm_sec
-
+			
 			if current_hour == hours and \
 				current_minutes == minutes and \
-				current_seconds == seconds:
-				cleaner = Cleaner.Cleaner(json_file_path)
+				cleaner_time["done"] ==  False :
+				
+				if cleaner_time["job"] == "reset": 
+					
+					for time in cleaner_data["Cleaner-times"]:
+						time["done"] = False	
+				
 				cleaner.clean()
+
+	
+			
 				
 		up.uploadPic(json_file_path, cli, images_path)
 		# counter
@@ -72,7 +82,7 @@ if __name__ == "__main__":
 			print ("images\\", ",".join(added))
 			image = ",".join(added)
 			caption = input("your caption for this photo :")
-			time = input("time (hh:mm) :")
+			time = utl.time_checker(input("time (hh:mm) :"))
 			tags = input("your tags for this picture : ")
 		
 			post  =  {
@@ -104,6 +114,5 @@ if __name__ == "__main__":
 
 			with open(json_file_path, 'w') as f:
 				json.dump(data, f, indent=4)
-				print("Done")
 
 		before = after

@@ -3,7 +3,6 @@ class Cleaner():
 
     def __init__(self, jsonFile):
         self.jsonFile = jsonFile
-        print("file : ", self.jsonFile)
 
     def clean(self):
         with open(self.jsonFile, "r") as f:
@@ -73,7 +72,7 @@ class Cleaner():
             cache = json.load(f)
 
         if cache["username"] != None and cache["password"] != None and cache["images_path"] != None:
-                cache["isFistTime"] = False
+                cache["isFirstTime"] = False
 
         with open(self.jsonFile, "w") as target:
             json.dump(cache, target, indent=4)

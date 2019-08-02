@@ -24,10 +24,7 @@ if __name__ == "__main__":
             obj.setPath(sys.argv[2])
         elif sys.argv[1] == "--help": 
             obj.document()
-        else: 
-            print("--help")
-
-    
+            
         obj.verify()
     else:
         print("can't call this file like that, user --help for documentation")
