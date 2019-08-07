@@ -1,5 +1,5 @@
 # INSTAGRAM_POSTS_AUTOMATOR
-This is a Script made using the [instaPy_cli](https://github.com/instagrambot/instapy-cli) python library  for uploading posts/videos to feed/story.
+This is a Script made using the [instaPy_cli](https://github.com/instagrambot/instapy-cli) python library for uploading posts/videos to feed/story.
 it help  you schedule you next posts for the next 24 hours 
 
 # Files
@@ -13,7 +13,7 @@ it help  you schedule you next posts for the next 24 hours
  
 ## Set up your IG Account
 * METHOD #1
-	* `python app.py` it will ask for the details 
+	* Run `python app.py` and it will ask for the details 
 
 * METHOD #2
 	* user the cleaner functionalities 
@@ -26,8 +26,8 @@ it help  you schedule you next posts for the next 24 hours
 ## Cleaning cache and pictures data 
 	
 
-* `python cleaner.py --reset-cache`  this reset your cache.json file to it's default stat where your username and password and path to the pics folder aren't defined yet.  
-* `python cleaner.py --reset-datastore` to reset the data.json file to is initial stat 
+* Run `python cleaner.py --reset-cache`  this resets your cache.json file to it's default stat where your username and password and path to the pics folder aren't defined yet.  
+* Run `python cleaner.py --reset-datastore` to reset the data.json file to is initial stat 
 
 ## Delete a picture 
 
