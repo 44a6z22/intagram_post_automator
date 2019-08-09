@@ -5,9 +5,8 @@ def time_checker(string):
     # print(time[1])
     for t in  time: 
         if time[1] >= 60:
-            tmp = time[1] % 60
+            time[1] = time[1] % 60
             time[0] = time[0] + 1
-            time[1] = tmp
         elif time[0] >= 24:
             time[0] = time[0] % 24
     
