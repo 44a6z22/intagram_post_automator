@@ -1,8 +1,8 @@
 {
-    "username": null,
-    "password": null,
-    "images_path": null,
+    "username": "44a6z22",
+    "password": "Hamza-_-",
+    "images_path": "C:\\Users\\Youcode\\Desktop\\photos",
     "json_file_path": "json_data/data.json",
     "cleaner_file": "json_data/cleaner.json",
-    "isFirstTime": true
+    "isFirstTime": false
 }

@@ -12,6 +12,7 @@ def uploadPic(jsonFile, cli , picsPath):
 
         isUploaded = post["posted"]
         isDeleted = post["deleted"]
+        postType = post["type"]
         # getting current time
         localTime = time.localtime()
         current_hour = localTime.tm_hour
@@ -25,7 +26,9 @@ def uploadPic(jsonFile, cli , picsPath):
     
         if current_hour == uploadTime_hour and current_minutes == uploadTime_min and isUploaded == False and isDeleted == False:
             print("uploading ... ")
-            cli.upload(picsPath + "/" + image, caption)
+            if postType == "picture" : 
+                cli.upload(picsPath + "/" + image, caption)
+            
             post["posted"] = not isUploaded
             with open(jsonFile, "w") as jsonFile:
                 json.dump(datastore, jsonFile, indent=4)

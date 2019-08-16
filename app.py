@@ -67,13 +67,10 @@ if __name__ == "__main__":
 						time["done"] = False	
 				
 				cleaner.clean()
-
-	
-			
+		
 				
 		up.uploadPic(json_file_path, cli, images_path)
-		# counter
-
+		
 		after = dict([(f, None) for f in os.listdir(images_path)])
 		added = [f for f in after if not f in before]
 		removed = [f for f in before if not f in after]
@@ -84,12 +81,14 @@ if __name__ == "__main__":
 			caption = input("your caption for this photo :")
 			time = utl.time_checker(input("time (hh:mm) :"))
 			tags = input("your tags for this picture : ")
-		
+			postType = utl.post_type_picker()
+
 			post  =  {
 				"image": image, 
 				"caption" : caption,
 				"tags" : tags,
 				"time" : time,
+				"type": postType,
 				"posted": False,
 				"deleted": False
 			}

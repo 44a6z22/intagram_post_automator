@@ -1,3 +1,13 @@
 {
-    "POSTS": []
+    "POSTS": [
+        {
+            "image": "hamdaoui hamza.PNG",
+            "caption": "i coded a python3 script that uploads stuf to IG ",
+            "tags": "",
+            "time": "3:12",
+            "type": "picture",
+            "posted": true,
+            "deleted": false
+        }
+    ]
 }
