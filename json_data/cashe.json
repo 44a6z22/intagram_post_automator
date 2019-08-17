@@ -2,7 +2,7 @@
     "username": null,
     "password": null,
     "images_path": null,
-    "json_file_path": "json_data/data.json",
-    "cleaner_file": "json_data/cleaner.json",
+    "json_file_path": "assets/python/json_data/data.json",
+    "cleaner_file": "assets/python/json_data/cleaner.json",
     "isFirstTime": true
 }
