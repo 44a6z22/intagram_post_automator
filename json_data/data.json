@@ -1,3 +1,12 @@
 {
-    "POSTS": []
+    "POSTS": [
+        {
+            "image": "hamdaoui hamza.PNG",
+            "caption": "ldshflhsd",
+            "tags": "#mkdjkfjsd",
+            "time": "13:20",
+            "posted": true,
+            "deleted": false
+        }
+    ]
 }

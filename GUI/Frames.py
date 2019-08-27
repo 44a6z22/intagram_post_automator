@@ -1,7 +1,10 @@
 #!/usr/local/bin/python
 from Tkinter import * 
+
+from PIL import ImageTk, Image
 import json
 import time
+
 
 
 class Menus(Frame):
@@ -48,11 +51,6 @@ class loginEntries(Frame):
         self.pathEntry.grid(row=3, column=1, ipadx=20)
 
 
-
-class FilesInfoFrame(Frame):
-    pass
-
-
 class loginButtons(Frame): 
     def __init__(self, master=None):
         Frame.__init__(self, master)
@@ -77,11 +75,59 @@ class loginButtons(Frame):
 
         label = Label(self.master, text ="Done")
         label.grid(row=4, columnspan=2)
-        time.sleep(2)
-        self.quit()
 
 
+    ########################################
+    #     safe the file info interface     #
+    ########################################
+
+class ImageFrame(Frame): 
+    def __init__(self, master=None, fileName = None):
+        Frame.__init__(self, master)
+        self.fileName = fileName
+        
+
+
+class FilesInfoFrame(Frame):
+
+    def __init__(self, master=None, fileName=None):
+        Frame.__init__(self, master)
+        self.fileName = fileName
+        self.createEntries()
+
+
+    def createEntries(self):
+        self.fileCaption = Entry(self.master, text="ok this is a caption")
+        self.fileTime = Entry(self.master)
+        self.fileTags = Entry(self.master)
+
+        self.captionLabel = Label(self.master, text="Caption : ")
+        self.timeLabel = Label(self.master, text="Time : ")
+        self.tagsLabel = Label(self.master, text="tags : ")
+
+        self.fileCaption.grid(row=1, column=1)
+        self.fileTime.grid(row=2, column=1)
+        self.fileTags.grid(row=3, column=1)
+
+        self.captionLabel.grid(row=1, column=0, sticky=E)
+        self.timeLabel.grid(row=2, column=0, sticky=E)
+        self.tagsLabel.grid(row=3, column=0, sticky=E)
 
 
 class SaveInfoButtons(Frame):
-    pass
+    def __init__(self, master=None):
+        Frame.__init__(self, master)
+        self.grid(row=4, columnspan=2)
+        self.createButtons()
+
+
+    def createButtons(self):
+        self.saveButton = Button(self, text="Login", command=self.save)
+        self.saveButton.grid(row=4, column=0, ipadx=40)
+        self.quitButton = Button(self, text="Quit", command=self.quit)
+        self.quitButton.grid(row=4, column=1, ipadx=40)
+
+    def save(self): 
+        self.doneLabel = Label(self.master, text="Done")
+        self.doneLabel.grid(row=5, columnspan=2)
+
