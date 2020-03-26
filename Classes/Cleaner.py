@@ -17,14 +17,17 @@ class Cleaner():
             print("Done")
 
     def resetData(self):
+ 
         with open(self.jsonFile, "r") as f:
                 data = json.load(f)
 
+        # reset data.json file
         for posts in data["POSTS"]:
-            data["POSTS"].remove(posts)
+            data["POSTS"].remove(posts)      
 
         with open(self.jsonFile, 'w') as f:
             json.dump(data, f, indent=4)
+
         print("Reset datastore done")
 
     def resetCache(self):
@@ -92,3 +95,8 @@ class Cleaner():
             --help :
                 for help with the inline commands
         ''')
+    
+    def defineIgInfo(self, userName, password, path):
+        self.setPassword(password)
+        self.setUserName(userName)
+        self.setPath(path)

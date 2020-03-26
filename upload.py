@@ -1,4 +1,4 @@
-from instapy_cli import client
+# from instapy_cli import client
 import time 
 import json
 import login

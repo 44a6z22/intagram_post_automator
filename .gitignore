@@ -1,0 +1,5 @@
+*.pyc
+./__pycache__
+./CLasses/__pycache__
+./json_data/cashe.json
+./get-pip.py
