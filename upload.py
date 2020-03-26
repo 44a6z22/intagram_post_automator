@@ -1,4 +1,4 @@
-# from instapy_cli import client
+from instapy_cli import client
 import time 
 import json
 import login
@@ -13,10 +13,12 @@ def uploadPic(jsonFile, cli , picsPath):
         isUploaded = post["posted"]
         isDeleted = post["deleted"]
         postType = post["type"]
+
         # getting current time
         localTime = time.localtime()
         current_hour = localTime.tm_hour
         current_minutes = localTime.tm_min
+        
         # getting data from the json file
         image = post["image"]
         caption = post["caption"] + "\n\n\n\n\n\n\n" + post["tags"]
@@ -26,6 +28,7 @@ def uploadPic(jsonFile, cli , picsPath):
     
         if current_hour == uploadTime_hour and current_minutes == uploadTime_min and isUploaded == False and isDeleted == False:
             print("uploading ... ")
+          
             if postType == "picture" : 
                 cli.upload(picsPath + "/" + image, caption)
             

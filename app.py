@@ -78,12 +78,13 @@ if __name__ == "__main__":
 		removed = [f for f in before if not f in after]
 		
 		if added:
+			postType = utl.post_type_picker()
 			print ("images\\", ",".join(added))
 			image = ",".join(added)
 			caption = input("your caption for this photo :")
 			time = utl.time_checker(input("time (hh:mm) :"))
 			tags = input("your tags for this picture : ")
-			postType = utl.post_type_picker()
+			
 
 			post  =  {
 				"image": image, 

@@ -20,7 +20,7 @@ def post_type_picker():
 
     typeString = ""
     
-    print("pick what type of post this file will be : \n 1) feed picture ? \n 2) feed video ? \n 3) Story ?  ")
+    print("Where do you want this file to be posted : \n 1) feed picture ? \n 2) feed video ? \n 3) Story ?  ")
     number = int(input())
     
     if number == 1: 

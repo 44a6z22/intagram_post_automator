@@ -25,7 +25,7 @@ if __name__ == "__main__":
             obj.defineIgInfo(
                 sys.argv[2].split(":")[0], # username 
                 sys.argv[2].split(":")[1],  # password
-                sys.argv[2].split(":")[2]
+                # sys.argv[2].split(":")[2]
                 )
         elif sys.argv[1] == "--set-path":
             obj.setPath(sys.argv[2])

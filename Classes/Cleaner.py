@@ -96,7 +96,7 @@ class Cleaner():
                 for help with the inline commands
         ''')
     
-    def defineIgInfo(self, userName, password, path):
+    def defineIgInfo(self, userName, password):
         self.setPassword(password)
         self.setUserName(userName)
-        self.setPath(path)
+        # self.setPath(path)
