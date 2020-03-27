@@ -38,12 +38,12 @@ if __name__ == "__main__":
 		cache["username"] = userName
 		cache["password"] = password
 		cache["isFirstTime"] = False
-
-
+		
 		with open("json_data/cashe.json", 'w') as c:
 			json.dump(cache, c, indent=4)
 
 	cli = log.login(cache["username"], cache["password"])
+	
 	while True:
 		
 		with open(cleaner_file, "r") as cleaner:

@@ -1,8 +1,10 @@
 import json
-class Cleaner():
 
-    def __init__(self, jsonFile):
+class Cleaner():
+    
+    def __init__(self, jsonFile, job):
         self.jsonFile = jsonFile
+        self.job = job
 
     def clean(self):
         with open(self.jsonFile, "r") as f:
@@ -81,21 +83,29 @@ class Cleaner():
             json.dump(cache, target, indent=4)
 
     def document(self):
-        print('''
-            --reset-chache :
-                to reset your cache file (your login and password will be lost after this step)
-            --reset-datastore :
-                to delete all picture stored in the data.json file (need to empty the pictures folder manualy atm )
-            --set-username :
-                to set your ig username up
-            --set-password :
-                to set your ig password up
-            --set-path :
-                to set the path to where you gonna put the pic you wanna upload (link to your pics folder)
-            --help :
-                for help with the inline commands
-        ''')
-    
+
+        if self.job == "init":
+
+            print('''
+                --set-username :
+                    to set your ig username up
+                --set-password :
+                    to set your ig password up
+                --set-path :
+                    to set the path to where you gonna put the pic you wanna upload (link to your pics folder)
+                --help :
+                    for help with the inline commands
+            ''')
+        else: 
+            print('''
+                --reset-chache :
+                    to reset your cache file (your login and password will be lost after this step)
+                --reset-datastore :
+                    to delete all picture stored in the data.json file (need to empty the pictures folder manualy atm )
+                --help :
+                    for help with the inline commands
+            ''')
+
     def defineIgInfo(self, userName, password):
         self.setPassword(password)
         self.setUserName(userName)

@@ -5,6 +5,7 @@ import login
 
 
 def uploadPic(jsonFile, cli , picsPath): 
+    
     with open(jsonFile,  'r') as f:
         datastore = json.load(f)
 
