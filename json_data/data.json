@@ -1,13 +1,3 @@
 {
-    "POSTS": [
-        {
-            "image": "image (3).png",
-            "caption": "this in",
-            "tags": "#KSKSKSKSK",
-            "time": "11:20",
-            "type": "picture",
-            "posted": false,
-            "deleted": false
-        }
-    ]
+    "POSTS": []
 }

@@ -5,7 +5,6 @@ from datetime import datetime
 import shutil 
 import json
 
-
 # custom libs 
 import login as log 
 import upload as up
@@ -45,7 +44,6 @@ if __name__ == "__main__":
 	cli = log.login(cache["username"], cache["password"])
 	
 	while True:
-		
 		with open(cleaner_file, "r") as cleaner:
 			cleaner_data = json.load(cleaner)
 
@@ -59,12 +57,8 @@ if __name__ == "__main__":
 			hours = int(cleaner_time['time'].split(':')[0])
 			minutes = int(cleaner_time['time'].split(':')[1])
 			
-			if current_hour == hours and \
-				current_minutes == minutes and \
-				cleaner_time["done"] ==  False :
-				
+			if current_hour == hours and current_minutes == minutes and cleaner_time["done"] ==  False :
 				if cleaner_time["job"] == "reset": 
-					
 					for time in cleaner_data["Cleaner-times"]:
 						time["done"] = False	
 				

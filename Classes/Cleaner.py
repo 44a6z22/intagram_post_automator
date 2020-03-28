@@ -2,7 +2,7 @@ import json
 
 class Cleaner():
     
-    def __init__(self, jsonFile, job):
+    def __init__(self, jsonFile, job = "init"):
         self.jsonFile = jsonFile
         self.job = job
 
